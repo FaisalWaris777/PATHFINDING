@@ -31,8 +31,6 @@ let name,value;
        <div className='reset'>
        <button classname="reset" type="submit" onClick={reload}><b>RESET</b></button>
        </div>
-      <div className='right'>
-        </div>
     </div>
   );
 }

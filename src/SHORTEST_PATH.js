@@ -1,5 +1,13 @@
-export default function SHORTEST_PATH(si,sj,di,dj,n,m,matrix,dist,vist) {
-    
+import { to_false } from "./PATH";
+
+export default function SHORTEST_PATH(si,sj,di,dj,n,m,matrix,dist,vist,vp) {
+const vd_reset=()=>{
+    for(let i=0;i<n;i++)
+for(let j=0;j<m;j++)
+ {dist[i][j]=100;
+ vist[i][j]=[-1,-1];}
+}
+
 let weight=0;
 let x=[0,0,1,-1];
 let y=[1,-1,0,0];
@@ -28,9 +36,7 @@ s.push([0,[si,sj]]);
         } 
      }}}
  }
-console.log(dist);
 vist[si][sj]=[-1,-1];
- let vp=new Array();
  let i=di,j=dj;
  while(i!=-1)
  { let t1=i,t2=j;
@@ -38,8 +44,12 @@ vist[si][sj]=[-1,-1];
     i=vist[t1][t2][0];
     j=vist[t1][t2][1];}
 vp.reverse();
+console.log(vp);
 if(vp.length===1)
-{alert("PATH DO NOT EXIST");}
+{alert("PATH DOES NOT EXIST");
+vd_reset();
+to_false();
+}
 for(let indx=1;indx<vp.length-1;indx++)
 {let x=vp[indx][0];   
 let y=vp[indx][1];
@@ -49,10 +59,11 @@ let a=document.getElementById('node-row-'+(x)+'col-'+(y));
 if(a!=null){
 a.style.backgroundColor = "blue";}
 if(indx+1==(vp.length-1))
-{setTimeout(()=>{alert("PATH LENGTH IS : "+weight);},10*indx);
-setTimeout(()=>{alert("CLICK ON RESET TO CLEAR THE GRID.");},30*indx);}
-},100*indx);
+{setTimeout(()=>{alert("PATH LENGTH IS : "+weight); 
+to_false();
+vd_reset();},10*indx);
 }
-} 
+},100*indx);
+}} 
   
 

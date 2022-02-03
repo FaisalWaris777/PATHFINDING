@@ -1,9 +1,9 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import PATH from './PATH';
 import INSTRUCTIONS from './INSTRUCTIONS';
 
-function App() {
+export default function App() {
 
   const [open, setOpen] = React.useState(true);
   
@@ -15,7 +15,7 @@ function App() {
   var matrix=new Array(row);
   var dist=new Array(row);
   var vist=new Array(row);
-  
+  let vp=new Array();
   for(let i=0;i<row;i++)
   {matrix[i]=new Array(col);
   dist[i]=new Array(col);
@@ -34,8 +34,7 @@ return (
    row={row} 
    matrix={matrix}
    dist={dist}
-   vist={vist}/>
+   vist={vist}
+   vp={vp}/>
   </>);
 }
-
-export default App;

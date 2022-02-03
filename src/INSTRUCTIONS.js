@@ -12,7 +12,7 @@ export default function INSTRUCTIONS(props) {
         <div>
           <Dialog open={props.open} onClose={props.handleClose}>
             <DialogTitle>
-               <b>Welcome to PathFinding Visualizer!</b>
+               <b>Welcome to Shortest PathFinding Visualizer!</b>
             </DialogTitle>
             <DialogContent>
             <DialogContentText>
@@ -33,6 +33,9 @@ export default function INSTRUCTIONS(props) {
               </DialogContentText>
               <DialogContentText>
                <b>4. Click on "RESET" Button to clear the entire Grid.</b>
+              </DialogContentText>
+              <DialogContentText>
+               <b>5. You can edit the Grid even after algorithm has finished running.</b>
               </DialogContentText>
             </DialogContent>
             <DialogActions>
